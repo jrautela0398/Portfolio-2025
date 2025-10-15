@@ -1287,4 +1287,96 @@ body.home-page::-webkit-scrollbar { display: none; } /* Chrome/Safari */
   writing-mode: horizontal-tb;
 }
 
+/* === Giant split name like JAM / AREA === */
+.name-banner{
+  position: fixed;           /* stays put as you scroll */
+  left: 0;
+  right: 0;
+  bottom: clamp(12px, 5vh, 48px); /* distance from bottom */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-inline: clamp(8px, 2vw, 32px);
+  pointer-events: none;      /* don’t block clicks on content */
+  z-index: 1;                /* keep it behind your thumbnails if they have higher z-index */
+}
+
+/* Make sure your tiles/hero sit above this.
+   If needed, give them something like z-index: 2; */
+
+.name-banner .name-left,
+.name-banner .name-right{
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 1000;          /* heavy like in the reference */
+  letter-spacing: -0.05em;
+  line-height: .88;
+  text-transform: uppercase;
+  /* Responsive size: scales from small screens to very large */
+  font-size: clamp(80px, 18vw, 120px);
+
+  color: #111;               /* same black as in sample */
+  opacity: .96;              /* slight soften, optional */
+  /* Optional look tweaks: */
+  /* mix-blend-mode: multiply; */
+  /* text-rendering: geometricPrecision; */
+}
+
+/* === Center block that sits between the two words === */
+.name-banner { position: fixed; }
+.name-center{
+  position: absolute;                 /* dead center horizontally */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: clamp(24px, 6vh, 72px);     /* sits slightly above the big words baseline */
+  text-align: center;
+  max-width: min(80ch, 54vw);
+  color: #111;                        /* keep same palette; change if you want cyan */
+  z-index: 2;                         /* above the big words; drop to 1 to sit behind */
+  pointer-events: none;               /* decorative only */
+}
+
+.name-center .nc-kicker{
+  margin: 0 0 .4em;
+  font: 600 clamp(10px, 1vw, 12px)/1 'Inter', system-ui, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .8;
+}
+
+.name-center .nc-title{
+  margin: 0 0 .25em;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(18px, 2.8vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.name-center .nc-sub{
+  margin: 0;
+  font: 600 clamp(10px, 1vw, 12px)/1.1 'Inter', system-ui, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .85;
+}
+
+/* Mobile safety: let them scale down and not overflow horizontally */
+@media (max-width: 700px){
+  .name-banner{
+    bottom: clamp(8px, 3vh, 24px);
+  }
+  .name-banner .name-left,
+  .name-banner .name-right{
+    font-size: clamp(72px, 34vw, 180px);
+  }
+
+  .name-center{
+    bottom: clamp(16px, 4.5vh, 40px);
+    max-width: 90vw;
+  }
+  .name-center .nc-title{
+    font-size: clamp(16px, 5.4vw, 28px);
+  }
+}
+
 
