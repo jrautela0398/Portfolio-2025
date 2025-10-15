@@ -35,9 +35,9 @@
   <span class="name-left">JYOTI</span>
 
   <div class="name-center">
-    <p class="nc-kicker">© Communication & Product</p>
-    <h2 class="nc-title">Brand & Digital Designer</h2>
-    <p class="nc-sub">Systems · Strategy · Visual Language</p>
+    <h2 class="nc-title">She is a Critical Technologist working at the intersection</h2>
+      <h3 class="nc-title">of society, AI engineering, and Speculative Design</h3>
+    <p class="nc-sub">Science · Design · Culture</p>
   </div>
 
   <span class="name-right">RAUTELA</span>
@@ -49,7 +49,7 @@
   <!-- Gallery -->
   <section class="hero-gallery" aria-label="Featured projects">
     <a class="tile t1" href="projects/uno.html" rel="noopener"
-       data-title="UNO — BRAND POSTER"
+       data-title="HEART ON YOUR SLEEVES"
        data-cursor="Short write-up about this project&#10;Type: Changing the world&#10;Role: Blogger&#10;Year: 2024">
       <img src="public/123.png" alt="UNO poster" loading="lazy">
     </a>
@@ -173,6 +173,40 @@
 
   })();
   </script>
+
+<script>
+(function() {
+  const leftWord  = document.querySelector('.name-banner .name-left');
+  const rightWord = document.querySelector('.name-banner .name-right');
+  const centerBox = document.querySelector('.name-banner .name-center');
+  if (!leftWord || !rightWord || !centerBox) return;
+
+  function positionCenter() {
+    const L = leftWord.getBoundingClientRect();   // JYOTI box
+    const R = rightWord.getBoundingClientRect();  // RAUTELA box
+
+    // Midpoint of the gap between the two words (viewport coords)
+    const gapMidX = (L.right + R.left) / 2;
+
+    // Place the center box at that x (relative to the viewport)
+    centerBox.style.position = 'fixed';            // ensures left is viewport-based
+    centerBox.style.left = gapMidX + 'px';
+    centerBox.style.transform = 'translateX(-50%)';
+  }
+
+  // Run now, on resize, and after fonts load (so metrics are correct)
+  positionCenter();
+  window.addEventListener('resize', positionCenter, { passive: true });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(positionCenter);
+  } else {
+    // Small delay fallback if Font Loading API isn't available
+    setTimeout(positionCenter, 100);
+  }
+})();
+</script>
+
 
   <div class="edge-footer">
     <span class="v-label">DESIGN -></span>

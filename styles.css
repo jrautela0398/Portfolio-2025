@@ -1335,27 +1335,20 @@ body.home-page::-webkit-scrollbar { display: none; } /* Chrome/Safari */
   pointer-events: none;               /* decorative only */
 }
 
-.name-center .nc-kicker{
-  margin: 0 0 .4em;
-  font: 600 clamp(10px, 1vw, 12px)/1 'Inter', system-ui, sans-serif;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  opacity: .8;
-}
 
 .name-center .nc-title{
   margin: 0 0 .25em;
   font-family: 'Inter', system-ui, sans-serif;
-  font-weight: 900;
-  font-size: clamp(18px, 2.8vw, 48px);
+  font-weight: 700;
+  font-size: clamp(9px, 1.6vw, 16px);
   line-height: 1.05;
   letter-spacing: -0.01em;
 }
 
 .name-center .nc-sub{
-  margin: 0;
-  font: 600 clamp(10px, 1vw, 12px)/1.1 'Inter', system-ui, sans-serif;
-  letter-spacing: .12em;
+  margin: 2;
+  font: 120 clamp(7px, 0.7vw, 9px)/1.1 'Inter', system-ui, sans-serif;
+  letter-spacing: .14em;
   text-transform: uppercase;
   opacity: .85;
 }
