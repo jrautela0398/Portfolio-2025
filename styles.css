@@ -1312,7 +1312,7 @@ body.home-page::-webkit-scrollbar { display: none; } /* Chrome/Safari */
   line-height: .88;
   text-transform: uppercase;
   /* Responsive size: scales from small screens to very large */
-  font-size: clamp(80px, 18vw, 120px);
+  font-size: clamp(85px, 18vw, 125px);
 
   color: #111;               /* same black as in sample */
   opacity: .96;              /* slight soften, optional */
